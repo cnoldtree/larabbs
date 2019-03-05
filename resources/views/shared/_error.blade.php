@@ -2,8 +2,8 @@
     <div class="alert alert-danger">
         <div class="mt-2"><b>有错误发生：</b></div>
         <ul class="mt-2 mb-2">
-            @foreach ($error->all() as $error)
-                <li><i class="glyphicon glyphicon-remove"</li> {{ $error }}</li>
+            @foreach ($errors->all() as $error)
+                <li><i class="glyphicon glyphicon-remove"></i> {{ $error }}</li>
             @endforeach
         </ul>
     </div>
