@@ -7,6 +7,8 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
+
+use App\Models\Topic;
 use App\Handlers\SlugTranslateHandler;
 
 class TranslateSlug implements ShouldQueue
@@ -18,9 +20,12 @@ class TranslateSlug implements ShouldQueue
      *
      * @return void
      */
-    public function __construct()
-    {
-        //
+
+    protected $topic;
+    public function __construct(Topic $topic)
+        {
+        // 队列任务构造器中接收了 Eloquent 模型， 将会只序列化模型的 ID
+        $this->topic = $topic;
     }
 
     /**
